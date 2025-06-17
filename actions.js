@@ -4,13 +4,9 @@ const inputBar = document.querySelector("#inputBar");
 let nums = ["", "", ""];
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (nums[0] === "") {
-      inputBar.value = "";
-    }
-    inputBar.value += button.textContent;
     append(button.textContent);
     console.log(nums);
-    //if button is digit, add int; else add operation
+    inputBar.value = nums[0] + " " + nums[1] + " " + nums[2];
   });
 });
 
@@ -21,12 +17,18 @@ clearButton.addEventListener("click", () => {
 });
 
 function append(buttonVal) {
-  if (!isNaN(buttonVal) || buttonVal === ".") {
+  if (!isNaN(buttonVal)) {
     //is a number
     //if nums[1] is undefined => add to nums[0] else add to nums[2]
     if (nums[1] === "") {
       nums[0] += buttonVal; //add as string to concatenate
     } else {
+      nums[2] += buttonVal;
+    }
+  } else if (buttonVal === ".") {
+    if (nums[1] === "" && !nums[0].includes(buttonVal)) {
+      nums[0] += buttonVal;
+    } else if (nums[1] !== "" && !nums[2].includes(buttonVal)) {
       nums[2] += buttonVal;
     }
   } else {
@@ -49,7 +51,6 @@ function append(buttonVal) {
       if (nums[1] === "" || nums[2] === "") {
         if (nums[1] !== "" && nums[2] === "") {
           // is illegal operation, so operation is replaced
-          inputBar.value = nums[0] + buttonVal;
           nums[1] = buttonVal;
         } else {
           nums[1] = buttonVal;
