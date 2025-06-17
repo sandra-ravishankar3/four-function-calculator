@@ -1,0 +1,90 @@
+/*.inputBar {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  caret-color: rgb(var(--color-macaw));
+  color: rgb(var(--color-eel));
+  font: var(--text-body-weight) var(--text-body-size) /
+      var(--text-body-line-height) din-round,
+    sans-serif;
+  font-size: var(--__internal__input-font-size, var(--text-body-size));
+  letter-spacing: var(--text-body-letter-spacing);
+  line-height: var(
+    --__internal__input-line-height,
+    var(--text-body-line-height)
+  );
+  min-width: 0;
+  outline: none;
+  padding: var(--__internal__input-padding, 8px 14px);
+  text-transform: var(--text-body-casing);
+  width: 100%;
+}*/
+#inputBar {
+  background-color: #18d63e;
+  border: solid #19ae37;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  /*text-align: center;*/
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  max-width: 350px;
+  max-height: 130px;
+}
+
+#inputBar:after {
+  background-clip: padding-box;
+  background-color: #3ad058;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+#inputBar,
+#inputBar:focus {
+  user-select: auto;
+}
+
+#inputBar:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+#inputBar:disabled {
+  cursor: auto;
+}
+
+#inputBar:active {
+  border-width: 4px 0 0;
+  background: none;
+}
